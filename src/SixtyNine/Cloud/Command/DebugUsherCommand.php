@@ -5,7 +5,6 @@ namespace SixtyNine\Cloud\Command;
 use Imagine\Gd\Image;
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
-use Imagine\Image\Color;
 use SixtyNine\Cloud\Factory\FontsFactory;
 use SixtyNine\Cloud\Factory\PlacerFactory;
 use SixtyNine\Cloud\Model\Cloud;
