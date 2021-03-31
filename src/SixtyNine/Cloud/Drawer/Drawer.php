@@ -5,6 +5,7 @@ namespace SixtyNine\Cloud\Drawer;
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
 use Imagine\Image\ImageInterface;
+use Imagine\Image\Palette;
 use Imagine\Image\Point;
 use SixtyNine\DataTypes\Box as MyBox;
 use SixtyNine\Cloud\Factory\FontsFactory;
@@ -52,7 +53,7 @@ class Drawer
      */
     public function createImage($width, $height, $color = '#FFFFFF', $opacity = 100)
     {
-        $palette = new Imagine\Image\Palette\RGB();
+        $palette = new Palette\RGB();
         $this->image = $this->imagine->create(
             new Box($width, $height),
             new $palette->color($color, abs($opacity - 100))
@@ -116,7 +117,7 @@ class Drawer
             new Point($x, $y + $height),
         );
 
-        $palette = new Imagine\Image\Palette\RGB();
+        $palette = new Palette\RGB();
 
         $this->image->draw()->polygon($points, $palette->color($color));
 
