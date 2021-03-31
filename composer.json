@@ -20,7 +20,7 @@
         "php": ">=5.3.9",
         "doctrine/collections": "^1.4",
         "jms/serializer": "^1.2",
-        "imagine/imagine": "~0.5.0",
+        "imagine/imagine": "~1.2.4",
         "symfony/console": "~4.1",
         "symfony/filesystem": "^3.1",
         "monolog/monolog": "^1.22",
