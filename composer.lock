@@ -260,7 +260,7 @@
         },
         {
             "name": "imagine/imagine",
-            "version": "0.5.x-dev",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine.git",
