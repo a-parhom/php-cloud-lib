@@ -4,8 +4,8 @@ namespace SixtyNine\Cloud\Tests\Builder;
 
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box as ImagineBox;
-use Imagine\Image\Color;
 use Imagine\Image\ImageInterface;
+use Imagine\Image\Palette;
 use Imagine\Image\Point;
 use Imagine\Image\PointInterface;
 use SixtyNine\Cloud\Drawer\Drawer;
@@ -32,7 +32,8 @@ class DrawingTest extends TestCase
     public function testDrawing()
     {
         $imagine = new Imagine();
-        $image = $imagine->create(new ImagineBox(400, 400), new Color('#000000'));
+        $palette = new Palette\RGB();
+        $image = $imagine->create(new ImagineBox(400, 400), $palette->color('#000000'));
 
         $text = 'Foobar';
         $size = 80;
@@ -210,13 +211,15 @@ class DrawingTest extends TestCase
         $x = $pos->getX();
         $y = $pos->getY();
 
+        $palette = new Palette\RGB();
+
         $points = array(
             $this->createPoint($x, $y),
             $this->createPoint($x + $width, $y),
             $this->createPoint($x + $width, $y + $height),
             $this->createPoint($x, $y + $height),
         );
-        $image->draw()->polygon($points, new Color($color));
+        $image->draw()->polygon($points, $palette->color($color));
     }
 
     /**
