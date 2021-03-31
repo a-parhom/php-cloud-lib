@@ -56,7 +56,7 @@ class Drawer
         $palette = new Palette\RGB();
         $this->image = $this->imagine->create(
             new Box($width, $height),
-            new $palette->color($color, abs($opacity - 100))
+            $palette->color($color, abs($opacity - 100))
         );
         return $this;
     }
