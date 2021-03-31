@@ -4,7 +4,6 @@ namespace SixtyNine\Cloud\Drawer;
 
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
-use Imagine\Image\Color;
 use Imagine\Image\ImageInterface;
 use Imagine\Image\Point;
 use SixtyNine\DataTypes\Box as MyBox;
@@ -53,9 +52,10 @@ class Drawer
      */
     public function createImage($width, $height, $color = '#FFFFFF', $opacity = 100)
     {
+        $palette = new Imagine\Image\Palette\RGB();
         $this->image = $this->imagine->create(
             new Box($width, $height),
-            new Color($color, abs($opacity - 100))
+            new $palette->color($color, abs($opacity - 100))
         );
         return $this;
     }
@@ -116,7 +116,9 @@ class Drawer
             new Point($x, $y + $height),
         );
 
-        $this->image->draw()->polygon($points, new Color($color));
+        $palette = new Imagine\Image\Palette\RGB();
+
+        $this->image->draw()->polygon($points, $palette->color($color));
 
         return $this;
     }
